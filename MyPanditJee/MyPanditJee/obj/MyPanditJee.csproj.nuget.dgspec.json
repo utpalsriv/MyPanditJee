@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mayan\\source\\repos\\MyPanditJee\\MyPanditJee\\MyPanditJee.csproj": {}
+    "D:\\Prroject\\MyPanditJee\\MyPanditJee\\MyPanditJee\\MyPanditJee.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mayan\\source\\repos\\MyPanditJee\\MyPanditJee\\MyPanditJee.csproj": {
+    "D:\\Prroject\\MyPanditJee\\MyPanditJee\\MyPanditJee\\MyPanditJee.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mayan\\source\\repos\\MyPanditJee\\MyPanditJee\\MyPanditJee.csproj",
+        "projectUniqueName": "D:\\Prroject\\MyPanditJee\\MyPanditJee\\MyPanditJee\\MyPanditJee.csproj",
         "projectName": "MyPanditJee",
-        "projectPath": "C:\\Users\\mayan\\source\\repos\\MyPanditJee\\MyPanditJee\\MyPanditJee.csproj",
-        "packagesPath": "C:\\Users\\mayan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mayan\\source\\repos\\MyPanditJee\\MyPanditJee\\obj\\",
+        "projectPath": "D:\\Prroject\\MyPanditJee\\MyPanditJee\\MyPanditJee\\MyPanditJee.csproj",
+        "packagesPath": "C:\\Users\\RAHUL\\.nuget\\packages\\",
+        "outputPath": "D:\\Prroject\\MyPanditJee\\MyPanditJee\\MyPanditJee\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\mayan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\RAHUL\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -39,6 +39,12 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[5.0.2, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
