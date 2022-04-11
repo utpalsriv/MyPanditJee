@@ -72,7 +72,7 @@ namespace MyPanditJee.Controllers
                 userRegModel.Password = encryptPassword;
                 _userService.RegisterUser(userRegModel, loginModel, userProfileModel);
                 var encryptEmail = CommonCode.base64Encode(userProfileModel.Email);
-                HttpContext.Session.SetString("userId", userProfileModel.Email);
+               
                 //SendEmail(loginModel, userProfileModel.Name);
                 //return RedirectToRoute(new { controller = "Profile", action = "UserProfile", encryptEmail });
             }

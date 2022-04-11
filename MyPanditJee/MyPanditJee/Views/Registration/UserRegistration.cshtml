@@ -4,68 +4,69 @@
     ViewData["Title"] = "UserRegistration";
     Layout = "~/Views/Home/Index.cshtml";
 }
-
+<link href="~/css/UserRegistration.css" rel="stylesheet" />
 <h1>UserRegistration</h1>
 
 <h4>UserRegistrationModel</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="UserRegistration">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Id" class="control-label"></label>
-                <input asp-for="Id" class="form-control" />
-                <span asp-validation-for="Id" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Phone" class="control-label"></label>
-                <input asp-for="Phone" class="form-control" />
-                <span asp-validation-for="Phone" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Password" class="control-label"></label>
-                <input asp-for="Password" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ConfirmPassword" class="control-label"></label>
-                <input asp-for="ConfirmPassword" class="form-control" />
-                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Created" class="control-label"></label>
-                <input asp-for="Created" class="form-control" />
-                <span asp-validation-for="Created" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="LastUpdated" class="control-label"></label>
-                <input asp-for="LastUpdated" class="form-control" />
-                <span asp-validation-for="LastUpdated" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="RegistrationType" class="control-label"></label>
-                <input asp-for="RegistrationType" class="form-control" />
-                <span asp-validation-for="RegistrationType" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
+    <div class="form-container sign-in-container">
+        <div class="form-grp">
+            @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+            {
+                <p class="alert alert-danger">@ViewBag.ErrorMessage</p>
+            }
+            <h3 class="title">Create Account</h3>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+            <hr class="my- mx-auto" style="width: 250px; align-content:center;">
+            <div class="social-container">
+                <div class="col">
+                    <button class="btn btn-sm btn-google btn-block" type="submit">Google</button>
+                </div>
+                <div class="col">
+                    <button class="btn btn-sm btn-facebook btn-block" type="submit"><i class="fa fa-facebook-f"></i> </button>
+                </div>
+            </div>
+            <hr class="my- mx-auto" style="width: 250px; align-content:center;">
+
+            <form class="form-signin" asp-controller="Registration" asp-action="UserRegistration">
+                <div class="form-label-group">
+                    <input type="text" id="inputFullName" asp-for="Name" class="form-control" placeholder="Full name" required autofocus>
+                    <label for="inputFullName" style="position:absolute;"><i class="fas fa-user-edit"></i>Full name</label>
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+
+                <div class="form-label-group">
+                    <input type="email" id="inputEmail" asp-for="Email" class="form-control" placeholder="Email address" required autofocus>
+                    <label for="inputEmail"><i class="fas fa-envelope"></i>Email address</label>
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <div class="form-label-group">
+                    <input type="number" id="inputPhone" asp-for="Phone" class="form-control" placeholder="Phone number" required autofocus>
+                    <label for="inputPhone"><i class="fas fa-phone-alt"></i>Phone no</label>
+                    <span asp-validation-for="Phone" class="text-danger"></span>
+                </div>
+
+                <div class="form-label-group">
+                    <input type="password" id="inputPassword" asp-for="Password" class="form-control" placeholder="Password" required>
+                    <label for="inputPassword"><i class="fas fa-lock"></i>Password</label>
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+
+                <div class="form-label-group">
+                    <input type="password" id="inputConfirmPassword" asp-for="ConfirmPassword" class="form-control" placeholder="Confirm password" required>
+                    <label for="inputConfirmPassword"><i class="fas fa-lock"></i>Confirm Password</label>
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
 
