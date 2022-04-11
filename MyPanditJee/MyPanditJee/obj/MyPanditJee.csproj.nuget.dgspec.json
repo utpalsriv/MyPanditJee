@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Prroject\\MyPanditJee\\MyPanditJee\\MyPanditJee\\MyPanditJee.csproj": {}
+    "E:\\Projects\\MyPanditJee\\MyPanditJee\\MyPanditJee\\MyPanditJee\\MyPanditJee.csproj": {}
   },
   "projects": {
-    "D:\\Prroject\\MyPanditJee\\MyPanditJee\\MyPanditJee\\MyPanditJee.csproj": {
+    "E:\\Projects\\MyPanditJee\\MyPanditJee\\MyPanditJee\\MyPanditJee\\MyPanditJee.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Prroject\\MyPanditJee\\MyPanditJee\\MyPanditJee\\MyPanditJee.csproj",
+        "projectUniqueName": "E:\\Projects\\MyPanditJee\\MyPanditJee\\MyPanditJee\\MyPanditJee\\MyPanditJee.csproj",
         "projectName": "MyPanditJee",
-        "projectPath": "D:\\Prroject\\MyPanditJee\\MyPanditJee\\MyPanditJee\\MyPanditJee.csproj",
-        "packagesPath": "C:\\Users\\RAHUL\\.nuget\\packages\\",
-        "outputPath": "D:\\Prroject\\MyPanditJee\\MyPanditJee\\MyPanditJee\\obj\\",
+        "projectPath": "E:\\Projects\\MyPanditJee\\MyPanditJee\\MyPanditJee\\MyPanditJee\\MyPanditJee.csproj",
+        "packagesPath": "C:\\Users\\mayan\\.nuget\\packages\\",
+        "outputPath": "E:\\Projects\\MyPanditJee\\MyPanditJee\\MyPanditJee\\MyPanditJee\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\RAHUL\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\mayan\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -43,6 +43,14 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[5.0.2, )"
+            },
+            "MongoDB.Bson": {
+              "target": "Package",
+              "version": "[2.15.0, )"
+            },
+            "MongoDB.Driver": {
+              "target": "Package",
+              "version": "[2.15.0, )"
             }
           },
           "imports": [

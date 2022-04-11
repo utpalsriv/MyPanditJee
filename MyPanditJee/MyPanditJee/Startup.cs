@@ -4,6 +4,10 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
+using MyPanditJee.Service;
+using MyPanditJee.Service.Interface;
+using MyPanditJee.web.Service.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,8 +26,14 @@ namespace MyPanditJee
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
+
         {
+            services.Configure<DataConnection>(Configuration.GetSection(nameof(DataConnection)));
+            services.AddSingleton<IDataConnection>(sp => sp.GetRequiredService<IOptions<DataConnection>>().Value);
+
             services.AddControllersWithViews();
+            services.AddSingleton<UserService>();
+           
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,7 +60,7 @@ namespace MyPanditJee
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Registration}/{action=UserRegistration}");
             });
         }
     }
