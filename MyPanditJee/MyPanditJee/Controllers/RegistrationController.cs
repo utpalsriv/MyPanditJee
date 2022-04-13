@@ -61,11 +61,7 @@ namespace MyPanditJee.Controllers
                     Phone = userRegModel.Phone,
                     Email = userRegModel.Email,
                     HasProfileImage = false,
-                    Followers = 0,
-                    Following = 0,
-                    TotalUploadedVideo = 0,
-                    TotalUploadedPicture = 0,
-                    TotalConnectionReceived = 0
+                   
                 };
                 userRegModel.Created = userRegModel.LastUpdated = DateTime.Now;
                 userRegModel.RegistrationType = CommonConstants.User;

@@ -1,17 +1,16 @@
+using AspNet.Security.OAuth.Validation;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using MyPanditJee.Service;
 using MyPanditJee.Service.Interface;
-using MyPanditJee.web.Service.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace MyPanditJee
 {
@@ -30,10 +29,27 @@ namespace MyPanditJee
         {
             services.Configure<DataConnection>(Configuration.GetSection(nameof(DataConnection)));
             services.AddSingleton<IDataConnection>(sp => sp.GetRequiredService<IOptions<DataConnection>>().Value);
-
+            services.AddAuthentication(OAuthValidationDefaults.AuthenticationScheme)
+            .AddOAuthValidation();
+            services.AddHttpContextAccessor();
             services.AddControllersWithViews();
             services.AddSingleton<UserService>();
-           
+            services.AddSingleton<UserProfileService>();
+            services.AddSingleton<LoginService>();
+            services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+
+
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+            });
+
+
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,6 +67,7 @@ namespace MyPanditJee
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseAuthentication();
 
             app.UseRouting();
 
@@ -60,7 +77,7 @@ namespace MyPanditJee
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Registration}/{action=UserRegistration}");
+                    pattern: "{controller=Home}/{action=Landing}");
             });
         }
     }

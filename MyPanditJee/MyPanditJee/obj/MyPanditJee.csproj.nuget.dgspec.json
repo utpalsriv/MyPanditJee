@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Projects\\MyPanditJee\\MyPanditJee\\MyPanditJee\\MyPanditJee\\MyPanditJee.csproj": {}
+    "D:\\Ptoject\\MyPanditJee\\MyPanditJee\\MyPanditJee\\MyPanditJee.csproj": {}
   },
   "projects": {
-    "E:\\Projects\\MyPanditJee\\MyPanditJee\\MyPanditJee\\MyPanditJee\\MyPanditJee.csproj": {
+    "D:\\Ptoject\\MyPanditJee\\MyPanditJee\\MyPanditJee\\MyPanditJee.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Projects\\MyPanditJee\\MyPanditJee\\MyPanditJee\\MyPanditJee\\MyPanditJee.csproj",
+        "projectUniqueName": "D:\\Ptoject\\MyPanditJee\\MyPanditJee\\MyPanditJee\\MyPanditJee.csproj",
         "projectName": "MyPanditJee",
-        "projectPath": "E:\\Projects\\MyPanditJee\\MyPanditJee\\MyPanditJee\\MyPanditJee\\MyPanditJee.csproj",
-        "packagesPath": "C:\\Users\\mayan\\.nuget\\packages\\",
-        "outputPath": "E:\\Projects\\MyPanditJee\\MyPanditJee\\MyPanditJee\\MyPanditJee\\obj\\",
+        "projectPath": "D:\\Ptoject\\MyPanditJee\\MyPanditJee\\MyPanditJee\\MyPanditJee.csproj",
+        "packagesPath": "C:\\Users\\RAHUL\\.nuget\\packages\\",
+        "outputPath": "D:\\Ptoject\\MyPanditJee\\MyPanditJee\\MyPanditJee\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\mayan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\RAHUL\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,6 +40,10 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "AspNet.Security.OAuth.Validation": {
+              "target": "Package",
+              "version": "[2.0.0, )"
+            },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[5.0.2, )"

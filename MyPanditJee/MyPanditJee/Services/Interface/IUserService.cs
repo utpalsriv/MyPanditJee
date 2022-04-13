@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using MyPanditJee.Models;
 
-namespace MyPanditJee.web.Service.Interface
+namespace MyPanditJee.Service.Interface
 {
     public interface IUserService
     {

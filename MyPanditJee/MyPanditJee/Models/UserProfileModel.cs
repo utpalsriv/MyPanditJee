@@ -25,13 +25,6 @@ namespace MyPanditJee.Models
         [BsonElement("Email")]
         public string Email { get; set; }
 
-        [BsonElement("Gender")]
-        public string Gender { get; set; }
-
-        [DataType(DataType.Date)]
-        [BsonElement("Date of Birth")]
-        public string DOB { get; set; }
-
         [Required(ErrorMessage = "Enter address")]
         [StringLength(25, ErrorMessage = "Exceed the limit of 20 character")]
         [BsonElement("Address1")]
@@ -51,35 +44,9 @@ namespace MyPanditJee.Models
         [BsonElement("Country")]
         public string Country { get; set; }
 
-        [StringLength(200, ErrorMessage = "The Name must be no longer than 200 characters!")]
-        [BsonElement("About You")]
-        public string AboutYOu { get; set; }
-
-        [BsonElement("Talent Category")]
-        public string TalentCategory { get; set; }
-
-        [BsonElement("Sub Category")]
-        public string SubCategory { get; set; }
-
-        [BsonElement("Followers")]
-        public int Followers { get; set; }
-
-        [BsonElement("Following")]
-        public int Following { get; set; }
-
-        [BsonElement("Total Uploaded Files")]
-        public int TotalUploadedVideo { get; set; }
-
-        public int TotalUploadedPicture { get; set; }
-
-        public int TotalUploadedPost { get; set; }
-
         public string ProfileImageId { get; set; } // link to Profile Image
 
         public bool HasProfileImage { get; set; }
-
-        [BsonElement("Total Recieved Connection")]
-        public int TotalConnectionReceived { get; set; }
 
 
     }
