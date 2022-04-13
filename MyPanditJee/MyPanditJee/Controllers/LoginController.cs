@@ -37,7 +37,7 @@ namespace MyPanditJee.Controllers
             View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
 
 
-        [Route("Login/{provider}")]
+        
         public IActionResult Login(string provider, string returnUrl = null) =>
             Challenge(new AuthenticationProperties { RedirectUri = returnUrl ?? "/" }, provider);
 
@@ -58,10 +58,10 @@ namespace MyPanditJee.Controllers
                         HttpContext.Session.SetString("userId", loginModel.Email);
                         var encryptEmail = CommonCode.base64Encode(loginModel.Email);
 
-                       var userName = _userProfile.GetUser(loginModel.Email);
+                       var userName = _userProfile.GetUser(loginModel.Email); // here userName showing null
                         if (userName != null)
                         {
-                            HttpContext.Session.SetString("userName", userName.Name.ToString());
+                            HttpContext.Session.SetString("userName", userName.Name.ToString()); // Showing null in user
                         }
 
                        

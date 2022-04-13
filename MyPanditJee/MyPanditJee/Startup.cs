@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,6 +12,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using MyPanditJee.Service;
 using MyPanditJee.Service.Interface;
+using System;
 
 namespace MyPanditJee
 {
@@ -29,16 +31,25 @@ namespace MyPanditJee
         {
             services.Configure<DataConnection>(Configuration.GetSection(nameof(DataConnection)));
             services.AddSingleton<IDataConnection>(sp => sp.GetRequiredService<IOptions<DataConnection>>().Value);
-            services.AddAuthentication(OAuthValidationDefaults.AuthenticationScheme)
-            .AddOAuthValidation();
-            services.AddHttpContextAccessor();
-            services.AddControllersWithViews();
-            services.AddSingleton<UserService>();
+           
+           
             services.AddSingleton<UserProfileService>();
+   
+            services.AddSingleton<UserService>();
             services.AddSingleton<LoginService>();
-            services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+         
 
-
+            services.Configure<FormOptions>(o =>
+            {
+                o.ValueLengthLimit = int.MaxValue;
+                o.MultipartBodyLengthLimit = int.MaxValue;
+                o.MemoryBufferThreshold = int.MaxValue;
+            });
+            services.AddControllersWithViews();
+            services.Configure<IISServerOptions>(options =>
+            {
+                options.MaxRequestBodySize = int.MaxValue;
+            });
 
             services.AddAuthentication(options =>
             {
@@ -47,9 +58,25 @@ namespace MyPanditJee
                 options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
             });
 
+            services.Configure<CookiePolicyOptions>(options =>
+            {
+                // This lambda determines whether user consent for non-essential cookies is needed for a given request.
+                options.CheckConsentNeeded = context => false;
+                options.MinimumSameSitePolicy = SameSiteMode.None;
+            });
+
+            services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddSession(option =>
+            {
+                option.IdleTimeout = TimeSpan.FromMinutes(10);
+            });
 
 
+        }
 
+        private object MongoDbConfig()
+        {
+            throw new NotImplementedException();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -68,10 +95,14 @@ namespace MyPanditJee
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseAuthentication();
+            app.UseSession();
+
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
+
+          
 
             app.UseEndpoints(endpoints =>
             {

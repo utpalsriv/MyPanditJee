@@ -2,7 +2,7 @@
 
 @{
     ViewData["Title"] = "Login";
-    Layout = "~/Views/Login/Login.cshtml";
+   
 }
 
 <h1>Login</h1>
@@ -28,24 +28,15 @@
                 <input asp-for="Password" class="form-control" />
                 <span asp-validation-for="Password" class="text-danger"></span>
             </div>
+          
             <div class="form-group">
-                <label asp-for="UserType" class="control-label"></label>
-                <input asp-for="UserType" class="form-control" />
-                <span asp-validation-for="UserType" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="LoginStatus" class="control-label"></label>
-                <input asp-for="LoginStatus" class="form-control" />
-                <span asp-validation-for="LoginStatus" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Login" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Landing">Back to List</a>
 </div>
 
