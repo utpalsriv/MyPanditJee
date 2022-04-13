@@ -426,5 +426,5 @@ D:\Ptoject\MyPanditJee\MyPanditJee\MyPanditJee\obj\Debug\net5.0\MyPanditJee.dll
 D:\Ptoject\MyPanditJee\MyPanditJee\MyPanditJee\obj\Debug\net5.0\ref\MyPanditJee.dll
 D:\Ptoject\MyPanditJee\MyPanditJee\MyPanditJee\obj\Debug\net5.0\MyPanditJee.pdb
 D:\Ptoject\MyPanditJee\MyPanditJee\MyPanditJee\obj\Debug\net5.0\MyPanditJee.genruntimeconfig.cache
-D:\Ptoject\MyPanditJee\MyPanditJee\MyPanditJee\obj\Debug\net5.0\Razor\Views\Login\Login.cshtml.g.cs
 D:\Ptoject\MyPanditJee\MyPanditJee\MyPanditJee\bin\Debug\net5.0\AspNet.Security.OAuth.Validation.dll
+D:\Ptoject\MyPanditJee\MyPanditJee\MyPanditJee\obj\Debug\net5.0\Razor\Views\Login\Login.cshtml.g.cs
