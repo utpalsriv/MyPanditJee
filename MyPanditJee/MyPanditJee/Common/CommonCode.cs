@@ -31,8 +31,8 @@ namespace MyPanditJee.Common
         {
             try
             {
-                var encoder = new System.Text.UTF8Encoding();
-                System.Text.Decoder utf8Decode = encoder.GetDecoder();
+                var encoder = new UTF8Encoding();
+                Decoder utf8Decode = encoder.GetDecoder();
                 byte[] todecodeByte = Convert.FromBase64String(input);
                 int charCount = utf8Decode.GetCharCount(todecodeByte, 0, todecodeByte.Length);
                 char[] decodedChar = new char[charCount];

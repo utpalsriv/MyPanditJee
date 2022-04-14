@@ -1,11 +1,27 @@
-﻿
+﻿@using Microsoft.AspNetCore.Http;
+@using MyPanditJee.Common;
+
 @{
     ViewData["Title"] = "Landing";
     Layout = "~/Views/Home/Index.cshtml";
 }
 
+@{
+    var userId = Context.Session.GetString("userId");
+    var userType = Convert.ToInt32(Context.Session.GetString("userType"));
+    var userName = Context.Session.GetString("userName");
+    var employerName = Context.Session.GetString("employerName");
+}
+@{
+    var encryptEmail = CommonCode.base64Encode(userId);
+
+}
+
 <h1>Landing</h1>
 <div>
+    @if (userType == CommonConstants.User){ 
+    <h1> Welcome @userName</h1>
+    }
     <div>
         <a asp-controller="Login" asp-action="Login">Login</a>
     </div>

@@ -17,12 +17,12 @@ namespace MyPanditJee.Controllers
         private readonly ILogger<LoginController> _logger;
         public readonly UserProfileService _userProfile;
         //public readonly EmployerProfileService _employerProfile;
-        public LoginController(LoginService loginService, ILogger<LoginController> logger)
+        public LoginController(LoginService loginService, ILogger<LoginController> logger,UserProfileService userProfileService)
         {
             _logger = logger;
             _loginService = loginService;
+            _userProfile = userProfileService;
             
-
         }
 
         [HttpGet]

@@ -44,41 +44,6 @@ namespace MyPanditJee.Service
             }
         }
 
-      /*  public AdminLoginModel validateCredential(AdminLoginModel adminLoginModel)
-        {
-            try
-            {
-                var filter = Builders<AdminLoginModel>.Filter.Eq(x => x.Username, adminLoginModel.Username);
-                var result = _adminLogin.Find(filter).FirstOrDefault();
-                if (result != null)
-                {
-                    if (CommonCode.base64Decode(result.Password) == adminLoginModel.Password)
-                        result.LoginStatus = true;
-                    else
-                        result.LoginStatus = false;
-                }
-                return result;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Error in validateCredential For Admin User" + ex.Message);
-            }
-        }
-
-        public AdminLoginModel FindMember(string username)
-        {
-            try
-            {
-                var filter = Builders<AdminLoginModel>.Filter.Eq(x => x.Username, username);
-                var admin = _adminLogin.Find(filter).FirstOrDefault();
-                return admin;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Error in findMember" + ex.Message);
-            }
-        }*/
-
         public LoginModel FindMember(string email)
         {
             try

@@ -1,0 +1,23 @@
+﻿@model MyPanditJee.Models.UserProfileModel
+
+@{
+    ViewData["Title"] = "UserProfile";
+  
+}
+
+<h1>UserProfile</h1>
+
+<h4>UserProfileModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="UserProfile">
+            <h1 class="text-danger"> Welcome to user profile</h1>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
