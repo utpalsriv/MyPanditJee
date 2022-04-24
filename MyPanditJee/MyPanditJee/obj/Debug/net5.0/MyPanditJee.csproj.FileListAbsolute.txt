@@ -429,3 +429,6 @@ D:\Ptoject\MyPanditJee\MyPanditJee\MyPanditJee\obj\Debug\net5.0\MyPanditJee.genr
 D:\Ptoject\MyPanditJee\MyPanditJee\MyPanditJee\bin\Debug\net5.0\AspNet.Security.OAuth.Validation.dll
 D:\Ptoject\MyPanditJee\MyPanditJee\MyPanditJee\obj\Debug\net5.0\Razor\Views\Login\Login.cshtml.g.cs
 D:\Ptoject\MyPanditJee\MyPanditJee\MyPanditJee\obj\Debug\net5.0\Razor\Views\Profile\UserProfile.cshtml.g.cs
+D:\Ptoject\MyPanditJee\MyPanditJee\MyPanditJee\obj\Debug\net5.0\Razor\Views\Home\About.cshtml.g.cs
+D:\Ptoject\MyPanditJee\MyPanditJee\MyPanditJee\obj\Debug\net5.0\Razor\Views\Home\Contact.cshtml.g.cs
+D:\Ptoject\MyPanditJee\MyPanditJee\MyPanditJee\bin\Debug\net5.0\libman.json

@@ -7,7 +7,7 @@ namespace MyPanditJee.Service.Interface
     {
         public UserProfileModel CreateUserProfile(UserProfileModel userProfileModel);
         public UserProfileModel GetUser(string email);
-
+        public void Update(UserProfileModel userProfileModel);
 
     }
 }

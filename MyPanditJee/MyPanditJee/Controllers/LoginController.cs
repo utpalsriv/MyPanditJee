@@ -16,14 +16,17 @@ namespace MyPanditJee.Controllers
         private readonly LoginService _loginService;
         private readonly ILogger<LoginController> _logger;
         public readonly UserProfileService _userProfile;
-        //public readonly EmployerProfileService _employerProfile;
-        public LoginController(LoginService loginService, ILogger<LoginController> logger,UserProfileService userProfileService)
+        public readonly UserService _userService;
+
+        public LoginController(LoginService loginService, ILogger<LoginController> logger, UserProfileService userProfile, UserService userService)
         {
-            _logger = logger;
             _loginService = loginService;
-            _userProfile = userProfileService;
-            
+            _logger = logger;
+            _userProfile = userProfile;
+            _userService = userService;
         }
+
+        //public readonly EmployerProfileService _employerProfile;
 
         [HttpGet]
         public IActionResult Login()
@@ -58,7 +61,7 @@ namespace MyPanditJee.Controllers
                         HttpContext.Session.SetString("userId", loginModel.Email);
                         var encryptEmail = CommonCode.base64Encode(loginModel.Email);
 
-                       var userName = _userProfile.GetUser(loginModel.Email); // here userName showing null
+                       var userName = _userService.GetUser(loginModel.Email); // here userName showing null
                         if (userName != null)
                         {
                             HttpContext.Session.SetString("userName", userName.Name.ToString()); // Showing null in user

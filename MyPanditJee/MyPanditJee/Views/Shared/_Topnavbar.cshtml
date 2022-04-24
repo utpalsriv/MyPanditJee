@@ -1,7 +1,18 @@
-﻿<link href="~/css/Navbar.css" rel="stylesheet" />
+﻿@using Microsoft.AspNetCore.Http;
+@using MyPanditJee.Common;
+@{
+    var userId = Context.Session.GetString("userId");
+    var userType = Convert.ToInt32(Context.Session.GetString("userType"));
+    var userName = Context.Session.GetString("userName");
+   // var employerName = Context.Session.GetString("employerName");
+}
 
+@{
+    var encryptEmail = CommonCode.base64Encode(userId);
 
+}
 
+<link href="~/css/Navbar.css" rel="stylesheet" />
 
 
 
@@ -26,20 +37,15 @@
     <div class="nav-links">
         <ul>
             <!--menu Item-->
-            <li><a href="#" target="_blank">Home</a></li>
-            <li><a href="#" target="_blank">About</a></li>
-            <li><a href="#" target="_blank">Services</a></li>
-            <li><a href="#" target="_blank">Portfolio</a></li>
-            <li><a href="#" target="_blank">Contact</a></li>
-
-
+            <li><a asp-controller="Home" asp-action="Landing">Home</a></li>
+            <li><a asp-controller="Home" asp-action="About">About</a></li>
+            <li><a asp-controller="Home" asp-action="Contact">Contact</a></li>
+            <li> <a asp-controller="Login" asp-action="Login">Login</a></li>
+            <li><a asp-controller="Registration" asp-action="UserRegistration">Sign up</a></li>
         </ul>
-        <!--Social Icon-->
-        <a class="icon">
-            <i class="fa fa-twitter"></i>
-            <i class="fa fa-linkedin"></i>
-            <i class="fa fa-youtube"></i>
+       
 
-        </a>
+
+
     </div>
 </div>

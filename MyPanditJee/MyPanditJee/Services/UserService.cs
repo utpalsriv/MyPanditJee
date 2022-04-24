@@ -16,6 +16,7 @@ namespace MyPanditJee.Service
         
 
         private readonly IMongoCollection<UserRegistrationModel> _userRegistration;
+
         private readonly IMongoCollection<LoginModel> _login;
      
 
@@ -87,6 +88,8 @@ namespace MyPanditJee.Service
                 throw new Exception("Error in SearchUser" + ex.Message);
             }
         }
+
+       
 
         public void Update(UserRegistrationModel userRegistrationModel, LoginModel loginModel)
         {

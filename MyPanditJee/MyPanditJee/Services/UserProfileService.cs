@@ -14,16 +14,15 @@ namespace MyPanditJee.Service
         
 
         private readonly IMongoCollection<UserProfileModel> _userProfileModel;
-       
 
         public UserProfileService(IDataConnection dataConnection)
         {
             var client = new MongoClient(dataConnection.ConnectionString);
-            var database = client.GetDatabase(dataConnection.DatabaseName);   
+            var database = client.GetDatabase(dataConnection.DatabaseName);
             _userProfileModel = database.GetCollection<UserProfileModel>(UserprofileCollectionNamespace);
-           
         }
 
+   
         public UserProfileModel CreateUserProfile(UserProfileModel userProfileModel)
         {
             try
@@ -50,6 +49,16 @@ namespace MyPanditJee.Service
                 throw new Exception("Error in GetUser" + ex.Message);
             }
         }
-
+        public void Update (UserProfileModel userProfileModel)
+        {
+            try
+            {
+                _userProfileModel.ReplaceOne(reg => reg.Email == userProfileModel.Email, userProfileModel);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error in Update" + ex.Message);
+            }
+        }
     }
 }

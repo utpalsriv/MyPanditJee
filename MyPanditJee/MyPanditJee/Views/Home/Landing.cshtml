@@ -1,9 +1,11 @@
-﻿@using Microsoft.AspNetCore.Http;
+﻿
+
+@using Microsoft.AspNetCore.Http;
 @using MyPanditJee.Common;
 
 @{
     ViewData["Title"] = "Landing";
-    Layout = "~/Views/Home/Index.cshtml";
+
 }
 
 @{
@@ -19,14 +21,9 @@
 
 <h1>Landing</h1>
 <div>
-    @if (userType == CommonConstants.User){ 
-    <h1> Welcome @userName</h1>
+    @if (userType == 0)
+    {
+        <h1><a asp-controller="Profile" asp-route-encryptEmail="@encryptEmail" asp-action="UserProfile"> @userName</a></h1>
     }
-    <div>
-        <a asp-controller="Login" asp-action="Login">Login</a>
-    </div>
-    <div>
-        <a asp-controller="Registration" asp-action="UserRegistration">Sign up</a>
-    </div>
+    <a asp-controller="Login" asp-action="Login">Login</a>
 </div>
-

@@ -2,71 +2,57 @@
 
 @{
     ViewData["Title"] = "UserRegistration";
-   
+
 }
 <link href="~/css/UserRegistration.css" rel="stylesheet" />
 <h1>UserRegistration</h1>
 
-<h4>UserRegistrationModel</h4>
-<hr />
-<div class="row">
-    <div class="form-container sign-in-container">
-        <div class="form-grp">
+
+
+
+<body>
+    <div class="container "></div>
+    <div class="row">
+        <div class="col-lg">
             @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
             {
                 <p class="alert alert-danger">@ViewBag.ErrorMessage</p>
             }
-            <h3 class="title">Create Account</h3>
-
-            <hr class="my- mx-auto" style="width: 250px; align-content:center;">
-            <div class="social-container">
-                <div class="col">
-                    <button class="btn btn-sm btn-google btn-block" type="submit">Google</button>
-                </div>
-                <div class="col">
-                    <button class="btn btn-sm btn-facebook btn-block" type="submit"><i class="fa fa-facebook-f"></i> </button>
-                </div>
-            </div>
-            <hr class="my- mx-auto" style="width: 250px; align-content:center;">
-
             <form class="form-signin" asp-controller="Registration" asp-action="UserRegistration">
                 <div class="form-label-group">
                     <input type="text" id="inputFullName" asp-for="Name" class="form-control" placeholder="Full name" required autofocus>
-                    <label for="inputFullName" style="position:absolute;"><i class="fas fa-user-edit"></i>Full name</label>
+                    <label for="inputFullName"></label>
                     <span asp-validation-for="Name" class="text-danger"></span>
                 </div>
 
                 <div class="form-label-group">
                     <input type="email" id="inputEmail" asp-for="Email" class="form-control" placeholder="Email address" required autofocus>
-                    <label for="inputEmail"><i class="fas fa-envelope"></i>Email address</label>
+                    <label for="inputEmail"></label>
                     <span asp-validation-for="Email" class="text-danger"></span>
                 </div>
 
                 <div class="form-label-group">
                     <input type="number" id="inputPhone" asp-for="Phone" class="form-control" placeholder="Phone number" required autofocus>
-                    <label for="inputPhone"><i class="fas fa-phone-alt"></i>Phone no</label>
+                    <label for="inputPhone"></label>
                     <span asp-validation-for="Phone" class="text-danger"></span>
                 </div>
 
                 <div class="form-label-group">
                     <input type="password" id="inputPassword" asp-for="Password" class="form-control" placeholder="Password" required>
-                    <label for="inputPassword"><i class="fas fa-lock"></i>Password</label>
+                    <label for="inputPassword"></label>
                     <span asp-validation-for="Password" class="text-danger"></span>
                 </div>
 
                 <div class="form-label-group">
                     <input type="password" id="inputConfirmPassword" asp-for="ConfirmPassword" class="form-control" placeholder="Confirm password" required>
-                    <label for="inputConfirmPassword"><i class="fas fa-lock"></i>Confirm Password</label>
+                    <label for="inputConfirmPassword"></label>
                     <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <input type="submit" value="Create" class="btn btn-primary" />
+                    <input type="submit" value="Create" class="log-in" />
                 </div>
             </form>
+
         </div>
     </div>
-
-    <div>
-        <a asp-action="Index">Back to List</a>
-    </div>
-
+</body>

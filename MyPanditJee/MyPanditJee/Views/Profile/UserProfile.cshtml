@@ -1,12 +1,17 @@
 ﻿@model MyPanditJee.Models.UserProfileModel
+@using MyPanditJee.Common
 
 @{
     ViewData["Title"] = "UserProfile";
-  
+
 }
 
 <h1>UserProfile</h1>
 
+@*{
+
+    var encryptEmail = CommonCode.base64Encode(loginModel.Email);
+}*@
 <h4>UserProfileModel</h4>
 <hr />
 <div class="row">
@@ -17,7 +22,201 @@
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
+
+
+
+<button id="btnEdit" class="btn btn-primary float-right" style="background: #54BAB9; color: #F7ECDE;">Edit profile</button>
+<button id="btnProfile" class="btn btn-danger ">Back to Profile</button>
+<div id="userdetails">
+    <div class="container">
+        <div class="panel-body inf-content">
+            <h1> @Html.DisplayFor(model => model.Name)</h1>
+            <div class=" row">
+                <div class="col-md-6">
+                    <div class="table-responsive">
+                        <table class="table table-user-information">
+                            <tbody>
+
+                                <tr>
+                                    <td>
+                                        <strong>
+                                            <span class="fa fa-envelope " style="color: #54BAB9; "></span>
+                                            <label>Email:</label>
+                                        </strong>
+                                    </td>
+                                    <td style=" color: #325288;">
+                                        @* @Html.DisplayFor(model => model.Email)*@
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>
+                                            <span class="fa fa-phone " style="color: #54BAB9; "></span>
+                                            <label>Phone No:</label>
+                                        </strong>
+                                    </td>
+                                    <td style=" color: #325288;">
+                                        @Html.DisplayFor(model => model.Phone)
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="table-responsive">
+                        <table class="table table-user-information">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <strong>
+                                            <span class="fa fa-address-book " style="color: #54BAB9; "></span>
+                                            <label>Address Line1:</label>
+                                        </strong>
+                                    </td>
+                                    <td style=" color: #325288;">
+                                        @Html.DisplayFor(model => model.Address1)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>
+                                            <span class="fa fa-address-book " style="color: #54BAB9; "></span>
+                                            <label>Address Line2:</label>
+                                        </strong>
+                                    </td>
+                                    <td style=" color: #325288;">
+                                        @Html.DisplayFor(model => model.Address2)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>
+                                            <span class="fa fa-map-pin " style="color: #54BAB9; "></span>
+                                            <label>Pin Code:</label>
+                                        </strong>
+                                    </td>
+                                    <td style=" color: #325288;">
+                                        @Html.DisplayFor(model => model.Pin)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>
+                                            <span class="fa fa-map-marker " style="color: #54BAB9; "></span>
+                                            <label>State:</label>
+                                        </strong>
+                                    </td>
+                                    <td style=" color: #325288;">
+                                        @Html.DisplayFor(model => model.State)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>
+                                            <span class="fa fa-map " style="color: #54BAB9; "></span>
+                                            <label>Country</label>
+                                        </strong>
+                                    </td>
+                                    <td style=" color: #325288;">
+                                        @Html.DisplayFor(model => model.Country)
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+
+<div id="useredit">
+    <form asp-controller="Profile" asp-action="UserProfileEdit" method="post" class="container">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-row ">
+
+            @*<input type="hidden" name="Email" value="@Model.Email" />*@
+            <div class="form-group col-md-4 ">
+                <label for="inputEmail4 ">Name</label>
+                <input asp-for="Name" type="text" class="form-control " id="inputEmail4 " placeholder="Name ">
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-4 ">
+                <label for="Email">Email</label>
+                <input asp-for="Email" type="email" class="form-control " id="email" disabled>
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-4 ">
+                <label for="inputAdivress ">Mobile Number</label>
+                <input asp-for="Phone" type="text" class="form-control " id="inputAdivress " placeholder="e.g: 9876543210 ">
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-row ">
+            <div class="form-group col-md-5 ">
+                <label class="required">Address Line 1</label><span asp-validation-for="Address1" class="text-danger"></span><input asp-for="Address1" type="text" class="form-control " id="inputAdivress " placeholder="1234 Main St " required>
+            </div>
+            <div class="form-group col-md-5 ">
+                <label class="required">Address Line 2</label>
+                <input asp-for="Address2" type="text" class="form-control " id="inputAdivress2 " placeholder="Apartment, studio, or floor ">
+            </div>
+        </div>
+        <div class="form-row ">
+            <div class="form-group col-md-2 ">
+                <label>Pin code</label>
+                <input asp-for="Pin" type="text" class="form-control " id="inputZip ">
+                <span asp-validation-for="Pin" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-4 ">
+                <label>State</label>
+                @Html.DropDownListFor(m => m.State, new SelectList(""), "--Select State--", new { @Id = "State", @class = "form-control" })
+            </div>
+            <div class="form-group col-md-6 ">
+                <label>Country</label>
+                @Html.DropDownListFor(m => m.Country, new SelectList(""), "--Select --", new { @Id = "Country", @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group ">
+            <button type="submit" class="btn btn-primary ">Update</button>
+        </div>
+    </form>
+</div>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+<script src="~/lib/jquery-validation/dist/additional-methods.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+
+
+
+<style>
+    #btnProfile {
+        display: none;
+    }
+
+    #useredit {
+        display: none;
+    }
+</style>
+
+<script>
+    $(document).ready(function () {
+        $('#btnEdit').click(function () {
+            $('#useredit').css("display", "block");
+            $('#userdetails').hide();
+            $('#btnEdit').hide();
+            $('#btnProfile').css("display", "block");
+        })
+        $('#btnProfile').click(function () {
+            $('#userdetails').show();
+            $('#useredit').css("display", "none");
+            $('#btnProfile').css("display", "none");
+            $('#btnEdit').show();
+        })
+    })
+</script>
 

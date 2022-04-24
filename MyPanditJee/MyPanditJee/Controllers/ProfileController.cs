@@ -14,6 +14,7 @@ namespace MyPanditJee.Controllers
     {
         public readonly UserProfileService _userProfile;
         public readonly LoginService _loginService;
+
         private readonly ILogger<ProfileController> _logger;
 
         public ProfileController(UserProfileService userProfile, LoginService loginService, ILogger<ProfileController> logger)
