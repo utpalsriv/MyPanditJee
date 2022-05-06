@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Ptoject\\MyPanditJee\\MyPanditJee\\MyPanditJee\\MyPanditJee.csproj": {}
+    "E:\\ASp Projects\\myppp\\MyPanditJee\\MyPanditJee\\MyPanditJee\\MyPanditJee.csproj": {}
   },
   "projects": {
-    "D:\\Ptoject\\MyPanditJee\\MyPanditJee\\MyPanditJee\\MyPanditJee.csproj": {
+    "E:\\ASp Projects\\myppp\\MyPanditJee\\MyPanditJee\\MyPanditJee\\MyPanditJee.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Ptoject\\MyPanditJee\\MyPanditJee\\MyPanditJee\\MyPanditJee.csproj",
+        "projectUniqueName": "E:\\ASp Projects\\myppp\\MyPanditJee\\MyPanditJee\\MyPanditJee\\MyPanditJee.csproj",
         "projectName": "MyPanditJee",
-        "projectPath": "D:\\Ptoject\\MyPanditJee\\MyPanditJee\\MyPanditJee\\MyPanditJee.csproj",
-        "packagesPath": "C:\\Users\\RAHUL\\.nuget\\packages\\",
-        "outputPath": "D:\\Ptoject\\MyPanditJee\\MyPanditJee\\MyPanditJee\\obj\\",
+        "projectPath": "E:\\ASp Projects\\myppp\\MyPanditJee\\MyPanditJee\\MyPanditJee\\MyPanditJee.csproj",
+        "packagesPath": "C:\\Users\\mayan\\.nuget\\packages\\",
+        "outputPath": "E:\\ASp Projects\\myppp\\MyPanditJee\\MyPanditJee\\MyPanditJee\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\RAHUL\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\mayan\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

@@ -7,7 +7,7 @@ using Microsoft.Extensions.Logging;
 using MyPanditJee.Service;
 using MyPanditJee.Models;
 using MyPanditJee.Common;
-
+using MyPanditJee.Services;
 
 namespace MyPanditJee.Controllers
 {
@@ -17,14 +17,19 @@ namespace MyPanditJee.Controllers
         private readonly ILogger<LoginController> _logger;
         public readonly UserProfileService _userProfile;
         public readonly UserService _userService;
+        public readonly PanditJeeProfileServices _panditProfile;
+        public readonly PanditJeeServices _panditJeeProfile;
 
-        public LoginController(LoginService loginService, ILogger<LoginController> logger, UserProfileService userProfile, UserService userService)
+        public LoginController(LoginService loginService, ILogger<LoginController> logger, UserProfileService userProfile, UserService userService, PanditJeeProfileServices panditProfile, PanditJeeServices panditJeeProfile)
         {
             _loginService = loginService;
             _logger = logger;
             _userProfile = userProfile;
             _userService = userService;
+            _panditProfile = panditProfile;
+            _panditJeeProfile = panditJeeProfile;
         }
+    
 
         //public readonly EmployerProfileService _employerProfile;
 
@@ -66,6 +71,11 @@ namespace MyPanditJee.Controllers
                         {
                             HttpContext.Session.SetString("userName", userName.Name.ToString()); // Showing null in user
                         }
+                        var panditName = _panditJeeProfile.GetUser(loginModel.Email);
+                        if (panditName != null)
+                        {
+                            HttpContext.Session.SetString("panditName", panditName.Name.ToString());
+                        }
 
                        
                         if (loginResponse.UserType == CommonConstants.User)
@@ -73,16 +83,17 @@ namespace MyPanditJee.Controllers
                             HttpContext.Session.SetString("userType", loginResponse.UserType.ToString());
                             return RedirectToRoute(new { controller = "Profile", action = "UserProfile", encryptEmail });
                         }
-                       /* else if (loginResponse.UserType == CommonConstants.Recruiter)
+                       else if (loginResponse.UserType == CommonConstants.Recruiter)
                         {
                             HttpContext.Session.SetString("userType", loginResponse.UserType.ToString());
-                            return RedirectToRoute(new { controller = "Landing", action = "Landing", encryptEmail });
+                            return RedirectToRoute(new { controller = "Profile", action = "PanditProfile", encryptEmail });
                         }
-                        else if (loginResponse.UserType == CommonConstants.Admin)
-                        {
-                            HttpContext.Session.SetString("userType", loginResponse.UserType.ToString());
-                            return RedirectToRoute(new { controller = "Admin", action = "AdminLogin", });
-                        }*/
+                        /*
+                       else if (loginResponse.UserType == CommonConstants.Admin)
+                       {
+                           HttpContext.Session.SetString("userType", loginResponse.UserType.ToString());
+                           return RedirectToRoute(new { controller = "Admin", action = "AdminLogin", });
+                       }*/
                     }
                     else
                     {

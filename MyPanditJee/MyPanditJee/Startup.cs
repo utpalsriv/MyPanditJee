@@ -12,6 +12,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using MyPanditJee.Service;
 using MyPanditJee.Service.Interface;
+using MyPanditJee.Services;
 using System;
 
 namespace MyPanditJee
@@ -37,7 +38,9 @@ namespace MyPanditJee
    
             services.AddSingleton<UserService>();
             services.AddSingleton<LoginService>();
-         
+            services.AddSingleton<PanditJeeServices>();
+            services.AddSingleton<PanditJeeProfileServices>();
+
 
             services.Configure<FormOptions>(o =>
             {
