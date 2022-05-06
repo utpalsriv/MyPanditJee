@@ -557,10 +557,7 @@ E:\ASp Projects\myppp\MyPanditJee\MyPanditJee\MyPanditJee\obj\Debug\net5.0\Razor
 E:\ASp Projects\myppp\MyPanditJee\MyPanditJee\MyPanditJee\obj\Debug\net5.0\Razor\Views\Home\Landing.cshtml.g.cs
 E:\ASp Projects\myppp\MyPanditJee\MyPanditJee\MyPanditJee\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
 E:\ASp Projects\myppp\MyPanditJee\MyPanditJee\MyPanditJee\obj\Debug\net5.0\Razor\Views\Login\Login.cshtml.g.cs
-E:\ASp Projects\myppp\MyPanditJee\MyPanditJee\MyPanditJee\obj\Debug\net5.0\Razor\Views\Profile\EmployerProfile.cshtml.g.cs
-E:\ASp Projects\myppp\MyPanditJee\MyPanditJee\MyPanditJee\obj\Debug\net5.0\Razor\Views\Profile\PanditProfile.cshtml.g.cs
 E:\ASp Projects\myppp\MyPanditJee\MyPanditJee\MyPanditJee\obj\Debug\net5.0\Razor\Views\Profile\UserProfile.cshtml.g.cs
-E:\ASp Projects\myppp\MyPanditJee\MyPanditJee\MyPanditJee\obj\Debug\net5.0\Razor\Views\Registration\PanditJeeRegistration.cshtml.g.cs
 E:\ASp Projects\myppp\MyPanditJee\MyPanditJee\MyPanditJee\obj\Debug\net5.0\Razor\Views\Registration\UserRegistration.cshtml.g.cs
 E:\ASp Projects\myppp\MyPanditJee\MyPanditJee\MyPanditJee\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
 E:\ASp Projects\myppp\MyPanditJee\MyPanditJee\MyPanditJee\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
@@ -576,3 +573,5 @@ E:\ASp Projects\myppp\MyPanditJee\MyPanditJee\MyPanditJee\obj\Debug\net5.0\MyPan
 E:\ASp Projects\myppp\MyPanditJee\MyPanditJee\MyPanditJee\obj\Debug\net5.0\ref\MyPanditJee.dll
 E:\ASp Projects\myppp\MyPanditJee\MyPanditJee\MyPanditJee\obj\Debug\net5.0\MyPanditJee.pdb
 E:\ASp Projects\myppp\MyPanditJee\MyPanditJee\MyPanditJee\obj\Debug\net5.0\MyPanditJee.genruntimeconfig.cache
+E:\ASp Projects\myppp\MyPanditJee\MyPanditJee\MyPanditJee\obj\Debug\net5.0\Razor\Views\Registration\PanditRegistration.cshtml.g.cs
+E:\ASp Projects\myppp\MyPanditJee\MyPanditJee\MyPanditJee\obj\Debug\net5.0\Razor\Views\Profile\PanditProfile.cshtml.g.cs

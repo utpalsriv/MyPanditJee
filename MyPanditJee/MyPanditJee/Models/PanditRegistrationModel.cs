@@ -9,9 +9,10 @@ using System.Threading.Tasks;
 
 namespace MyPanditJee.Models
 {
-    public class PanditJeeRegistrationModel
+    public class PanditRegistrationModel
     {
-         [BsonId]
+
+        [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
 

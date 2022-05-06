@@ -8,7 +8,7 @@ namespace MyPanditJee.Services.Interface
 {
    public  interface IPanditJeeProfileServices
     {
-        public PanditJeeRegistrationModel createEmployerProfile(PanditJeeRegistrationModel panditProfileModel);
-        public PanditJeeRegistrationModel GetPandit(string email);
+        public PanditProfileModel createPanditProfile(PanditProfileModel panditProfileModel);
+        public PanditProfileModel GetPandit(string email);
     }
 }

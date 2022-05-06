@@ -14,11 +14,11 @@ namespace MyPanditJee.Services
 
         private const string CollectionNamespace = "panditjeeRegistration";
         private const string LoginCollectionNamespace = "login";
-        private const string EmployerProfileCollectionNamespace = "panditProfile";
+        private const string panditProfileCollectionNamespace = "panditProfile";
 
-        private readonly IMongoCollection<PanditJeeRegistrationModel> _panditjeeRegistration;
+        private readonly IMongoCollection<PanditRegistrationModel> _panditjeeRegistration;
         private readonly IMongoCollection<LoginModel> _login;
-        private readonly IMongoCollection<PanditJeeProfileModel> _panditjeeProfile;
+        private readonly IMongoCollection<PanditProfileModel> _panditjeeProfile;
 
 
 
@@ -27,11 +27,11 @@ namespace MyPanditJee.Services
             var client = new MongoClient(dataConnection.ConnectionString);
             var database = client.GetDatabase(dataConnection.DatabaseName);
 
-            _panditjeeRegistration = database.GetCollection<PanditJeeRegistrationModel>(CollectionNamespace);
+            _panditjeeRegistration = database.GetCollection<PanditRegistrationModel>(CollectionNamespace);
             _login = database.GetCollection<LoginModel>(LoginCollectionNamespace);
-            _panditjeeProfile = database.GetCollection<PanditJeeProfileModel>(EmployerProfileCollectionNamespace);
+            _panditjeeProfile = database.GetCollection<PanditProfileModel>(panditProfileCollectionNamespace);
         }
-        public PanditJeeRegistrationModel registerPandit(PanditJeeRegistrationModel panditRegistrationModel, LoginModel loginModel, PanditJeeProfileModel panditProfileModel)
+        public PanditRegistrationModel registerPandit(PanditRegistrationModel panditRegistrationModel, LoginModel loginModel, PanditProfileModel panditProfileModel)
         {
             try
             {
@@ -49,10 +49,10 @@ namespace MyPanditJee.Services
             }
             catch (Exception ex)
             {
-                throw new Exception("Error in registerEmployer" + ex.Message);
+                throw new Exception("Error in registerPandit" + ex.Message);
             }
         }
-        public PanditJeeRegistrationModel GetUser(string email)
+        public PanditRegistrationModel GetPandit(string email)
         {
             try
             {
@@ -60,8 +60,10 @@ namespace MyPanditJee.Services
             }
             catch (Exception ex)
             {
-                throw new Exception("Error in GetUser" + ex.Message);
+                throw new Exception("Error in GetPandit" + ex.Message);
             }
         }
+
+       
     }
 }

@@ -81,47 +81,49 @@ namespace MyPanditJee.Controllers
         #endregion
 
 
-        #region Employer registration
+        #region pandit registration
 
         [HttpGet]
-        public ActionResult PanditJeeRegistration()
+        public ActionResult PanditRegistration()
         {
-            _logger.LogInformation("The EmployerRegistration GET method has been accessed");
+            _logger.LogInformation("The PanditRegistration GET method has been accessed");
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult PanditJeeRegistration(PanditJeeRegistrationModel panditJeemodel)
+        public IActionResult PanditRegistration(PanditRegistrationModel panRegModel)
         {
-            _logger.LogInformation("The EmployerRegistration POST method has been accessed");
+            _logger.LogInformation("The UserRegistration POST method has been accessed");
             if (ModelState.IsValid)
             {
-                var encryptPassword = CommonCode.base64Encode(panditJeemodel.Password);
+                var encryptPassword = CommonCode.base64Encode(panRegModel.Password);
                 var loginModel = new LoginModel
                 {
-                    Email = panditJeemodel.Email,
+                    Email = panRegModel.Email,
                     Password = encryptPassword,
                     UserType = CommonConstants.Recruiter
                 };
-                var pandieJeeProfileModel = new PanditJeeProfileModel
+                var panditProfileModel = new PanditProfileModel
                 {
-                    PanditJeeName = panditJeemodel.Name,
-                    PhoneNo = panditJeemodel.Phone,
-                    Email = panditJeemodel.Email,
-                   
+                    Name = panRegModel.Name,
+                    Phone = panRegModel.Phone,
+                    Email = panRegModel.Email,
+                    HasProfileImage = false,
+
                 };
-                panditJeemodel.Created = panditJeemodel.LastUpdated = DateTime.Now;
-                panditJeemodel.RegistrationType = CommonConstants.User;
-                panditJeemodel.Password = encryptPassword;
-                _panditjeeService.registerPandit(panditJeemodel, loginModel, pandieJeeProfileModel);
-                var encryptEmail = CommonCode.base64Encode(pandieJeeProfileModel.Email);
-                HttpContext.Session.SetString("userId", pandieJeeProfileModel.Email);
-                //SendEmail(loginModel, employerProfileModel.EmployeerName);
-               // return RedirectToRoute(new { controller = "Profile", action = "EmployerProfile", encryptEmail });
+                panRegModel.Created = panRegModel.LastUpdated = DateTime.Now;
+                panRegModel.RegistrationType = CommonConstants.Recruiter;
+                panRegModel.Password = encryptPassword;
+                _panditjeeService.registerPandit(panRegModel, loginModel, panditProfileModel);
+                var encryptEmail = CommonCode.base64Encode(panditProfileModel.Email);
+
+                //SendEmail(loginModel, userProfileModel.Name);
+                //return RedirectToRoute(new { controller = "Profile", action = "UserProfile", encryptEmail });
             }
-            return View(panditJeemodel);
+            return View(panRegModel);
         }
+
 
         #endregion
 

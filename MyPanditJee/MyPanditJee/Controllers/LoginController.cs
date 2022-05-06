@@ -66,25 +66,27 @@ namespace MyPanditJee.Controllers
                         HttpContext.Session.SetString("userId", loginModel.Email);
                         var encryptEmail = CommonCode.base64Encode(loginModel.Email);
 
-                       var userName = _userService.GetUser(loginModel.Email); // here userName showing null
-                        if (userName != null)
-                        {
-                            HttpContext.Session.SetString("userName", userName.Name.ToString()); // Showing null in user
-                        }
-                        var panditName = _panditJeeProfile.GetUser(loginModel.Email);
-                        if (panditName != null)
-                        {
-                            HttpContext.Session.SetString("panditName", panditName.Name.ToString());
-                        }
+                       
+                        
 
                        
                         if (loginResponse.UserType == CommonConstants.User)
                         {
+                            var userName = _userService.GetUser(loginModel.Email); // here userName showing null
+                            if (userName != null)
+                            {
+                                HttpContext.Session.SetString("userName", userName.Name.ToString()); // Showing null in user
+                            }
                             HttpContext.Session.SetString("userType", loginResponse.UserType.ToString());
                             return RedirectToRoute(new { controller = "Profile", action = "UserProfile", encryptEmail });
                         }
                        else if (loginResponse.UserType == CommonConstants.Recruiter)
                         {
+                            var panditName = _panditProfile.GetPandit(loginModel.Email);
+                            if (panditName != null)
+                            {
+                                HttpContext.Session.SetString("panditName", panditName.Name.ToString());
+                            }
                             HttpContext.Session.SetString("userType", loginResponse.UserType.ToString());
                             return RedirectToRoute(new { controller = "Profile", action = "PanditProfile", encryptEmail });
                         }

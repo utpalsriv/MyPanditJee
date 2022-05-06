@@ -14,16 +14,16 @@ namespace MyPanditJee.Services
         private const string UserprofileCollectionNamespace = "panditProfile";
 
 
-        private readonly IMongoCollection<PanditJeeRegistrationModel> _panditProfileModel;
+        private readonly IMongoCollection<PanditProfileModel> _panditProfileModel;
 
         public PanditJeeProfileServices(IDataConnection dataConnection)
         {
             var client = new MongoClient(dataConnection.ConnectionString);
             var database = client.GetDatabase(dataConnection.DatabaseName);
-            _panditProfileModel = database.GetCollection<PanditJeeRegistrationModel>(UserprofileCollectionNamespace);
+            _panditProfileModel = database.GetCollection<PanditProfileModel>(UserprofileCollectionNamespace);
         }
 
-        public PanditJeeRegistrationModel createEmployerProfile(PanditJeeRegistrationModel panditProfileModel)
+        public PanditProfileModel createPanditProfile(PanditProfileModel panditProfileModel)
         {
             try
             {
@@ -32,21 +32,21 @@ namespace MyPanditJee.Services
             }
             catch (Exception ex)
             {
-                throw new Exception("Error in CreateUserProfile" + ex.Message);
+                throw new Exception("Error in CreatePanditProfile" + ex.Message);
             }
         }
 
-        public PanditJeeRegistrationModel GetPandit(string email)
+        public PanditProfileModel GetPandit(string email)
         {
             try
             {
-                var filter = Builders<PanditJeeRegistrationModel>.Filter.Eq(x => x.Email, email);
+                var filter = Builders<PanditProfileModel>.Filter.Eq(x => x.Email, email);
                 var user = _panditProfileModel.Find(filter).FirstOrDefault();
                 return user;
             }
             catch (Exception ex)
             {
-                throw new Exception("Error in GetUser" + ex.Message);
+                throw new Exception("Error in GetPandit" + ex.Message);
             }
         }
     }

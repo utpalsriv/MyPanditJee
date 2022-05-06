@@ -8,6 +8,6 @@ namespace MyPanditJee.Services.Interface
 {
    public  interface IPanditJeeServices
     {
-        public PanditJeeRegistrationModel registerPandit(PanditJeeRegistrationModel panditRegistrationModel, LoginModel loginModel, PanditJeeProfileModel panditProfileModel);
+        public PanditRegistrationModel registerPandit(PanditRegistrationModel panditRegistrationModel, LoginModel loginModel, PanditProfileModel panditProfileModel);
     }
 }

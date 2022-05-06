@@ -1,4 +1,4 @@
-﻿@model MyPanditJee.Models.PanditJeeProfileModel
+﻿@model MyPanditJee.Models.PanditProfileModel
 
 @{
     ViewData["Title"] = "PanditProfile";
@@ -8,32 +8,26 @@
 <h1>PanditProfile</h1>
 
 <div>
-    <h4>PanditJeeProfileModel</h4>
+    <h4>PanditProfileModel</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PanditJeeName)
+            @Html.DisplayNameFor(model => model.Name)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PanditJeeName)
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Phone)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Email)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Email)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MandirName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.MandirName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PhoneNo)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PhoneNo)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Address1)
@@ -66,10 +60,16 @@
             @Html.DisplayFor(model => model.Country)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Specialization)
+            @Html.DisplayNameFor(model => model.ProfileImageId)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Specialization)
+            @Html.DisplayFor(model => model.ProfileImageId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.HasProfileImage)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.HasProfileImage)
         </dd>
     </dl>
 </div>
