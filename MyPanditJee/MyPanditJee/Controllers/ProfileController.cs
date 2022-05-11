@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MyPanditJee.Common;
+using MyPanditJee.Models;
 using MyPanditJee.Service;
 using MyPanditJee.Services;
 using System;
@@ -16,15 +17,17 @@ namespace MyPanditJee.Controllers
         public readonly UserProfileService _userProfile;
         public readonly LoginService _loginService;
         public readonly PanditJeeProfileServices _panditProfile;
+        public readonly PanditJeeServices _panditService;
 
         private readonly ILogger<ProfileController> _logger;
 
-        public ProfileController(UserProfileService userProfile, LoginService loginService, ILogger<ProfileController> logger, PanditJeeProfileServices panditProfile)
+        public ProfileController(UserProfileService userProfile, LoginService loginService, ILogger<ProfileController> logger, PanditJeeProfileServices panditProfile, PanditJeeServices panditService)
         {
             _userProfile = userProfile;
             _loginService = loginService;
             _logger = logger;
             _panditProfile = panditProfile;
+            _panditService = panditService;
         }
 
         #region User Profile
@@ -42,6 +45,21 @@ namespace MyPanditJee.Controllers
 
             return View(user);
         }
+        [HttpGet]
+        public ActionResult Connect()
+        {
+            return View();
+        }
+        [HttpGet]
+        public ActionResult getAllPandit()
+        {
+           
+                
+                var pan = _panditService.GetAllPandit();
+         
+            return View(pan);
+        }
+
         #endregion
 
         [HttpGet]

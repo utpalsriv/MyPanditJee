@@ -575,3 +575,5 @@ E:\ASp Projects\myppp\MyPanditJee\MyPanditJee\MyPanditJee\obj\Debug\net5.0\MyPan
 E:\ASp Projects\myppp\MyPanditJee\MyPanditJee\MyPanditJee\obj\Debug\net5.0\MyPanditJee.genruntimeconfig.cache
 E:\ASp Projects\myppp\MyPanditJee\MyPanditJee\MyPanditJee\obj\Debug\net5.0\Razor\Views\Registration\PanditRegistration.cshtml.g.cs
 E:\ASp Projects\myppp\MyPanditJee\MyPanditJee\MyPanditJee\obj\Debug\net5.0\Razor\Views\Profile\PanditProfile.cshtml.g.cs
+E:\ASp Projects\myppp\MyPanditJee\MyPanditJee\MyPanditJee\obj\Debug\net5.0\Razor\Views\Shared\_PanditList.cshtml.g.cs
+E:\ASp Projects\myppp\MyPanditJee\MyPanditJee\MyPanditJee\obj\Debug\net5.0\Razor\Views\Profile\getAllPandit.cshtml.g.cs

@@ -64,6 +64,18 @@ namespace MyPanditJee.Services
             }
         }
 
-       
+        public IEnumerable<PanditRegistrationModel> GetAllPandit()
+        {
+            try
+            {
+                return _panditjeeRegistration.Find(reg => true).ToList();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error in GetPandit" + ex.Message);
+            }
+        }
+
+
     }
 }
