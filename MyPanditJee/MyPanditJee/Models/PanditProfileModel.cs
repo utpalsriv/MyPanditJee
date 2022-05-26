@@ -36,8 +36,11 @@ namespace MyPanditJee.Models
         [Required(AllowEmptyStrings = true)]
         public string Address2 { get; set; }
 
-        [BsonElement("State")]
-        public string State { get; set; }
+        [BsonElement("States")]
+        public string States { get; set; }
+
+        [BsonElement("Cities")]
+        public string Cities { get; set; }
 
         [DataType(DataType.PostalCode)]
         [BsonElement("Pin Code")]
