@@ -131,7 +131,7 @@
 
 
 <div id="useredit">
-    <form asp-controller="Profile" asp-action="UserProfileEdit" method="post" class="container">
+    <form asp-controller="Profile" asp-action="PanditProfileEdit" method="post" class="container">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="form-row ">
             <input type="hidden" name="ProfileImageId" value="@Model.ProfileImageId" />
@@ -264,26 +264,3 @@
     })
 </script>
 
-
-<div class="form-group col-md-4 ">
-    <label>State</label>
-    @Html.DropDownListFor(m => m.States, new SelectList(""), "--Select State--", new { @Id = "States", @class = "form-control" })
-</div>
-
-
-<script src="~/lib/jquery/dist/jquery.js"></script>
-<script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
-<script src="~/lib/jquery-validation/dist/additional-methods.js"></script>
-<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
-<script>
-        $(document).ready(function () {
-        var url = '@Url.Action("GetState", "Dropdown")'; // Don't hard code your url's!
-        var gentype = $('#States'); // cache it
-        $.getJSON(url, null, function (response) {
-            gentype.empty(); // remove any existing options
-            $.each(response, function (index, item) {
-                gentype.append($('<option></option>').text(item));
-            });
-        });
-    });
-</script>

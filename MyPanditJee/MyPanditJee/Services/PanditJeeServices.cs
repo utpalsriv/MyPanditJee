@@ -76,6 +76,17 @@ namespace MyPanditJee.Services
             }
         }
 
+        public void Update(PanditProfileModel panditProfileModel)
+        {
+            try
+            {
+                _panditjeeProfile.ReplaceOne(reg => reg.Email == panditProfileModel.Email, panditProfileModel);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error in Update" + ex.Message);
+            }
+        }
 
     }
 }

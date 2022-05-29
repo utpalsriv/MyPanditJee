@@ -102,7 +102,7 @@ namespace MyPanditJee.Controllers
                 {
                     Email = panRegModel.Email,
                     Password = encryptPassword,
-                    UserType = CommonConstants.Recruiter
+                    UserType = CommonConstants.Pandit
                 };
                 var panditProfileModel = new PanditProfileModel
                 {
@@ -113,7 +113,7 @@ namespace MyPanditJee.Controllers
 
                 };
                 panRegModel.Created = panRegModel.LastUpdated = DateTime.Now;
-                panRegModel.RegistrationType = CommonConstants.Recruiter;
+                panRegModel.RegistrationType = CommonConstants.Pandit;
                 panRegModel.Password = encryptPassword;
                 _panditjeeService.registerPandit(panRegModel, loginModel, panditProfileModel);
                 var encryptEmail = CommonCode.base64Encode(panditProfileModel.Email);

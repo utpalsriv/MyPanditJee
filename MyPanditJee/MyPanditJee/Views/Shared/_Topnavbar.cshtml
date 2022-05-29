@@ -43,10 +43,10 @@
             <li> <a asp-controller="Login" asp-action="Login">Login</a></li>
             <li><a asp-controller="Registration" asp-action="UserRegistration">Sign up</a></li>
             <li><a asp-controller="Registration" asp-action="PanditRegistration">Sign up as Pandit</a></li>
+            @if (userType != CommonConstants.User)
+            {
+                <li><a asp-controller="Login" asp-action="LogOut">Log Out</a></li>
+            }
         </ul>
-       
-
-
-
     </div>
 </div>

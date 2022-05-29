@@ -40,6 +40,7 @@ namespace MyPanditJee
             services.AddSingleton<LoginService>();
             services.AddSingleton<PanditJeeServices>();
             services.AddSingleton<PanditJeeProfileServices>();
+            services.AddSingleton<DropDownService>();
 
 
             services.Configure<FormOptions>(o =>

@@ -84,6 +84,27 @@ namespace MyPanditJee.Controllers
             return View();
         }
 
+        [HttpGet]
+        public ActionResult PanditProfileEdit(string encryptEmail)
+        {
+            _logger.LogInformation("The UserProfileEdit GET method has been accessed");
+            var email = CommonCode.base64Decode(encryptEmail);
+            var user = _panditService.GetPandit(email);
+            return View(user);
+        }
+
+        [HttpPost]
+        public ActionResult PanditProfileEdit(PanditProfileModel panditProfileModel)
+        {
+            _logger.LogInformation("The UserProfileEdit POST method has been accessed");
+            if (ModelState.IsValid)
+            {
+                _panditService.Update(panditProfileModel);
+            }
+            var encryptEmail = CommonCode.base64Encode(panditProfileModel.Email);
+            return RedirectToRoute(new { controller = "Profile", action = "PanditProfile", encryptEmail });
+        }
+
     }
 }
           

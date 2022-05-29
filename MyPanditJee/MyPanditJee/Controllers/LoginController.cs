@@ -80,7 +80,7 @@ namespace MyPanditJee.Controllers
                             HttpContext.Session.SetString("userType", loginResponse.UserType.ToString());
                             return RedirectToRoute(new { controller = "Profile", action = "UserProfile", encryptEmail });
                         }
-                       else if (loginResponse.UserType == CommonConstants.Recruiter)
+                       else if (loginResponse.UserType == CommonConstants.Pandit)
                         {
                             var panditName = _panditProfile.GetPandit(loginModel.Email);
                             if (panditName != null)
@@ -115,7 +115,7 @@ namespace MyPanditJee.Controllers
             HttpContext.Session.Remove("userId");
             HttpContext.Session.Remove("userType");
             HttpContext.Session.Clear();
-            return RedirectToRoute(new { controller = "Landing", action = "Landing" });
+            return RedirectToRoute(new { controller = "Home", action = "Landing" });
         }
 
         [HttpGet]

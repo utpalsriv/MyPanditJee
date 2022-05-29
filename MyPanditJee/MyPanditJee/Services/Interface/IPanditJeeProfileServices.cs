@@ -10,5 +10,7 @@ namespace MyPanditJee.Services.Interface
     {
         public PanditProfileModel createPanditProfile(PanditProfileModel panditProfileModel);
         public PanditProfileModel GetPandit(string email);
+       
+
     }
 }
