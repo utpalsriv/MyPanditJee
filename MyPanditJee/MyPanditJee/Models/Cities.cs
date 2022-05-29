@@ -9,10 +9,10 @@ namespace MyPanditJee.Models
         [BsonId]
         public ObjectId Id { get; set; }
 
-        [BsonElement("CityName")]
+        [BsonElement("city")]
         public string CityName { get; set; }
 
-        [BsonElement("StateName")]
+        [BsonElement("state")]
         public string StateName { get; set; }
     }
 }

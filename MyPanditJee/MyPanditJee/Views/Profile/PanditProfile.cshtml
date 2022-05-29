@@ -120,6 +120,17 @@
                                         @Html.DisplayFor(model => model.Country)
                                     </td>
                                 </tr>
+                                <tr>
+                                    <td>
+                                        <strong>
+                                            <span class="fa fa-map " style="color: #54BAB9; "></span>
+                                            <label>City</label>
+                                        </strong>
+                                    </td>
+                                    <td style=" color: #325288;">
+                                        @Html.DisplayFor(model => model.Cities)
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -175,9 +186,13 @@
                 <label>State</label>
                 @Html.DropDownListFor(m => m.States, new SelectList(""), "--Select State--", new { @Id = "State", @class = "form-control" })
             </div>
-            <div class="form-group col-md-6 ">
+            <div class="form-group col-md-4 ">
                 <label>Country</label>
                 @Html.DropDownListFor(m => m.Country, new SelectList(""), "--Select --", new { @Id = "Country", @class = "form-control" })
+            </div>
+            <div class="form-group col-md-4 ">
+                <label>Cities</label>
+                @Html.DropDownListFor(m => m.Cities, new SelectList(""), "--Select --", new { @Id = "Cities", @class = "form-control" })
             </div>
         </div>
         
@@ -192,30 +207,12 @@
 <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
 
 <script type="text/javascript">
+   
+     
+
     $(document).ready(function () {
-        var url = '@Url.Action("GetGenreTypeList", "Dropdown")'; // Don't hard code your url's!
-        var genretype = $('#GenreType'); // cache it
-        $.getJSON(url, null, function (response) {
-            genretype.empty(); // remove any existing options
-            $.each(response, function (index, item) {
-                genretype.append($('<option></option>').text(item));
-            });
-        });
-    });
-      var url = '@Url.Action("SubtypeMethod", "DropDown")'; // Don't hard code your url's!
-    var subtype = $('#SubType'); // cache it
-    $("#GenreType").change(function () {
-    var genreName = $(this).val(); // Use $(this) so you don't traverse the DOM again
-        $.getJSON(url, { Genretype: genreName }, function (response) {
-        subtype.empty(); // remove any existing options
-        $.each(response, function (index, item) {
-            subtype.append($('<option></option>').text(item));
-        });
-    });
-    });
-    $(document).ready(function () {
-        var url = '@Url.Action("GetGender", "DropDown")'; // Don't hard code your url's!
-        var gentype = $('#Gender'); // cache it
+        var url = '@Url.Action("GetState", "Dropdown")'; // Don't hard code your url's!
+        var gentype = $('#State'); // cache it
         $.getJSON(url, null, function (response) {
             gentype.empty(); // remove any existing options
             $.each(response, function (index, item) {
@@ -223,10 +220,9 @@
             });
         });
     });
-
-    $(document).ready(function () {
-        var url = '@Url.Action("GetState", "Dropdown")'; // Don't hard code your url's!
-        var gentype = $('#State'); // cache it
+     $(document).ready(function () {
+        var url = '@Url.Action("GetCities", "Dropdown")'; // Don't hard code your url's!
+        var gentype = $('#Cities'); // cache it
         $.getJSON(url, null, function (response) {
             gentype.empty(); // remove any existing options
             $.each(response, function (index, item) {
