@@ -11,15 +11,19 @@ namespace MyPanditJee.Service
     public class UserProfileService : IUserProfileService
     {
         private const string UserprofileCollectionNamespace = "userProfile";
-        
+
+        private const string BookingCollectionNamespace = "bookPandit";
+
 
         private readonly IMongoCollection<UserProfileModel> _userProfileModel;
+            private readonly IMongoCollection<BookPanditModel> _bookPanditModel;
 
         public UserProfileService(IDataConnection dataConnection)
         {
             var client = new MongoClient(dataConnection.ConnectionString);
             var database = client.GetDatabase(dataConnection.DatabaseName);
             _userProfileModel = database.GetCollection<UserProfileModel>(UserprofileCollectionNamespace);
+            _bookPanditModel = database.GetCollection<BookPanditModel>(BookingCollectionNamespace);
         }
 
    
@@ -60,5 +64,18 @@ namespace MyPanditJee.Service
                 throw new Exception("Error in Update" + ex.Message);
             }
         }
+
+        public void BookPandit(BookPanditModel bookPanditModel)
+        {
+            try
+            {
+                _bookPanditModel.InsertOne(bookPanditModel);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error in Delete" + ex.Message);
+            }
+        }
+
     }
 }

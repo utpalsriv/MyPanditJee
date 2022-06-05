@@ -1,0 +1,80 @@
+﻿@model MyPanditJee.Models.BookPanditModel
+
+
+
+<div class="modal fade" id="fileModal3" tabindex="-1" role="dialog" aria-labelledby="bookPanditLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form enctype="multipart/form-data" asp-controller="Profile" asp-action="BookPandit">
+                <div class="modal-header text-center">
+                    <h4 class="modal-title w-100 font-weight-bold" id="bookPanditLabel">Book your Pandit Here</h4>
+                    
+                </div>
+                <input name="IsValid" type="hidden" value="@ViewData.ModelState.IsValid.ToString()" />
+                <div class="modal-body mx-3">
+                    <div>
+                        @if (ViewData.ModelState.Any(x => x.Value.Errors.Any()))
+                        {
+                            <div class="alert alert-danger" role="alert">
+                                <a class="close" data-dismiss="alert">×</a>
+                                @foreach (var modelError in Html.ViewData.ModelState.SelectMany(keyValuePair => keyValuePair.Value.Errors))
+                                {
+                                    <p>@modelError.ErrorMessage</p>
+                                }
+                            </div>
+                        }
+                        @if (this.ViewBag.SuccessMessage != null)
+                        {
+                            <div class="alert alert-success" role="alert">
+                                @this.ViewBag.SuccessMessage
+
+
+
+                            </div>
+
+
+
+                        }
+
+                    </div>
+
+                    <div class="md-form mb-3">
+                        <label data-error="wrong" data-success="right" for="PoojaName">PoojaName</label>
+                        <input type="text" id="inputCompanyName" asp-for="@Model.PoojaName" class="form-control" placeholder="PoojaName" required autofocus>
+                    </div>
+
+                    <div class="md-form mb-3">
+                       
+                            <label asp-for="Date" class="control-label"></label>
+                            <input asp-for="Date" class="form-control" />
+                            <span asp-validation-for="Date" class="text-danger"></span>
+                       
+                    </div>
+                   
+                    <div class="md-form mb-3">
+                        <label data-error="wrong" data-success="right" for="Address">Address</label>
+                        <input type="text" id="inputCompanyName" asp-for="@Model.Address" class="form-control" placeholder="Address" required autofocus>
+                    </div>
+
+                    <div class="md-form mb-3">
+                        <label data-error="wrong" data-success="right" for="Email">Email</label>
+                        <input type="text" id="inputCompanyName" asp-for="@Model.Email" class="form-control" placeholder="Email" required autofocus>
+                    </div>
+
+                    <div class="md-form mb-3">
+                        <label data-error="wrong" data-success="right" for="MobileNo">MobileNo</label>
+                        <input type="text" id="inputCompanyName" asp-for="@Model.MobileNo" class="form-control" placeholder="MobileNo" required autofocus>
+                    </div>
+
+                   <div class="modal-footer d-flex justify-content-center">
+                    <button id="show1" class="btn btn-primary" data-save="modal" value="Click" >Book</button>
+                    @*<button class="btn btn-primary" onclick="Close_click(this.id);" data-bind="modal">Close</button>*@
+                </div>
+                </div>
+
+
+
+            </form>
+        </div>
+    </div>
+</div>

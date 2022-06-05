@@ -1,8 +1,44 @@
-﻿@model IEnumerable<MyPanditJee.Models.PanditRegistrationModel>
+﻿@model IEnumerable<MyPanditJee.Models.PanditProfileModel>
 
 @{
     ViewData["Title"] = "GetAllPandit";
-   
+
 }
 
-hajshdf
+@if (Model != null)
+{
+    foreach (var item in Model)
+    {
+
+        <div class="p-3 mb-2 bg-light text-dark card">
+            <div class="company row">
+                <div class="card-header">
+                    @item.Name
+                </div>
+                <hr>
+                <div class="title col-xl-12 text-center">
+
+                    <h1>@item.Cities</h1>
+
+
+                </div>
+
+                <div class="col-xl-2 data">
+                    <p class="text-xl-left"><b>Experience :</b> @item.Address1</p>
+                </div>
+                <div class="col-xl-2 data">
+                    <p class="text-xl-left"><b>Salary :</b> @item.Country</p>
+                </div>
+                <div class="col-xl-2 data">
+                    <p class="text-xl-left"><b>Location :</b> @item.Email</p>
+                </div>
+
+            </div>
+        </div>
+        <button id="showPopup" class="btn btn-primary" data-target="#fileModal3" data-toggle="ajax-modal" data-url="@Url.Action("BookPandit")" data-placement="top" title="Book Pandit">Book Pandit</button>
+       <li><a asp-controller="Profile" asp-action="BookPandit">Book Pandit</a></li>
+
+
+
+    }
+}

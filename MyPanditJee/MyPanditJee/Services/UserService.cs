@@ -118,6 +118,7 @@ namespace MyPanditJee.Service
             }
         }
 
+        
         public UserRegistrationModel RegisterUser(UserRegistrationModel userRegistrationModel, LoginModel loginModel)
         {
             throw new NotImplementedException();

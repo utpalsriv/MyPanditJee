@@ -46,10 +46,34 @@ namespace MyPanditJee.Controllers
             return View(user);
         }
         [HttpGet]
-        public ActionResult Connect()
+        public ActionResult BookPandit()
         {
-            return View();
+           
+                _logger.LogInformation("The UploadFile GET method has been accessed");
+                var model = new BookPanditModel();
+                
+
+
+                return PartialView("View", model);
+
+        
         }
+
+        [HttpPost]
+        public ActionResult BookPandit(BookPanditModel bookPanditModel)
+        {
+
+            _logger.LogInformation("The UploadFile Post method has been accessed");
+            _userProfile.BookPandit(bookPanditModel);
+
+
+
+            return PartialView("View");
+
+
+        }
+
+
         [HttpGet]
         public ActionResult getAllPandit()
         {
