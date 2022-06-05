@@ -93,7 +93,7 @@ namespace MyPanditJee.Service
                 List<string> citylist = new List<string>();
                 foreach (var s in list)
                 {
-                    citylist.Add(s.StateName);
+                    citylist.Add(s.CityName);
                 }
                 return citylist;
             }
